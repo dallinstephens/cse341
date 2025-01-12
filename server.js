@@ -18,9 +18,11 @@ const app = express();
 //     res.send("Hello Sharlene!");
 // });
 
+const routes = require('./routes');
 const port = 3000;
 
-app.use('/', require('./routes'));
+app.use('/', routes);
+// app.use('/', require('./routes'));
 // app.use('/', require('./routes/index'));
 
 // If Render will use process.env.PORT. Otherwise, it will use port 3000 (localhost: 3000).

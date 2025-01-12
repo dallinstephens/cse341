@@ -1,8 +1,10 @@
 const routes = require('express').Router();
-const lesson1Controller = require('../controllers/lesson1');
+const baseController = require('../controllers');
+// const baseController = require('../controllers/index.js');
 
-routes.get('/', lesson1Controller.dallinRoute);
-routes.get('/sharlene', lesson1Controller.sharleneRoute);
+
+routes.get('/', baseController.getName);
+routes.get('/myname', baseController.getMyName);
 // app.get('/', lesson1Controller.dallinRoute);
 // app.get('/sharlene', lesson1Controller.sharleneRoute);
 // app.get('/', (req, res) => {

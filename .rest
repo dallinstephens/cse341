@@ -1,1 +1,14 @@
-GET http://localhost:3000
+GET http://localhost:3000 HTTP/1.1
+
+###
+
+GET http://localhost:3000/myname HTTP/1.1
+
+###
+
+GET https://cse341-92m1.onrender.com/ HTTP/1.1
+
+###
+
+GET https://cse341-92m1.onrender.com/myname HTTP/1.1
+
