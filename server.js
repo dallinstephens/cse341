@@ -3,6 +3,7 @@
 // https://codeforgeek.com/express-nodejs-tutorial/
 // https://youtu.be/K00J87SofEc
 // https://cse341.netlify.app/lesson1#newRepo
+// Solution: https://github.com/byui-cse/cse341-code-student/tree/L01-personal-solution
 const express = require('express');
 const app = express();
 
