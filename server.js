@@ -6,11 +6,9 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send("Corbin Stephens");
-});
-
 const localhostPort = 3000;
+
+app.use('/', require('./routes')); // same as app.use('/', require('./routes/index'));
 
 app.listen(process.env.PORT || localhostPort, () => {
     console.log('Web Server is listening at port ' + (process.env.PORT || 3000) + '.');
