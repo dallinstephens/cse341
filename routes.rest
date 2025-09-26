@@ -18,12 +18,12 @@ GET http://localhost:3000/contacts/single HTTP/1.1
 # This request brings up html links to bring up /contacts or /single.
 GET http://localhost:3000 HTTP/1.1
 
-###
+#### ROUTES FOR RENDER
 
 # This request produces a json object for data for all contacts.
 GET https://cse341-8k60.onrender.com/contacts HTTP/1.1
 
-#### ROUTES FOR RENDER
+###
 
 # This request produces a json object for a single contact when appending ?id=someIdFromSingleContact to /contacts/single.
 GET https://cse341-8k60.onrender.com/contacts/single?id=68d366e449379c1b0d7a8595 HTTP/1.1
