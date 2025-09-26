@@ -6,6 +6,18 @@
 const mongodb = require('../db/connect');
 const { ObjectId } = require('mongodb');
 
+
+const contactsMenu = (req, res) => {
+      res.status(200).send(`
+        <h1>Contacts Menu:</h1>
+        <h2>Select one of the following:</h2>
+        <p>
+          <a href="/contacts/">View all contacts</a><br>
+          <a href="/contacts/single">View a single contact</a><br>
+        </p>`
+      );
+};
+
 const getAllContacts = async (req, res) => {
   try {
     const result = await mongodb.getDb().db("lesson2").collection("contacts").find();
@@ -52,4 +64,4 @@ const getSingleContact = async (req, res) => {
   }
 }
 
-module.exports = { getAllContacts, getSingleContact };
+module.exports = { contactsMenu, getAllContacts, getSingleContact };

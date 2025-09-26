@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
-const url = `http://localhost:${port}/contacts`;
+const url = `http://localhost:${port}`;
 const mongodb = require('./db/connect');
 
 app
