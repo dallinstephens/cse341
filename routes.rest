@@ -1,0 +1,3 @@
+# This request produces a json object for the data for the frontend index.html page.
+
+GET http://localhost:3000/contacts HTTP/1.1
