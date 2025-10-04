@@ -16,8 +16,31 @@ const initDb = callback => {
         return callback(null, _db);
     }
     mongoClient.connect(mongoURI)
-        .then(client => {
+        .then(async client => {
           _db = client;
+
+          // Reference for create index: db.collection.createIndex( <keys>, <options>, <commitQuorum>)
+          // https://www.mongodb.com/docs/manual/reference/method/db.collection.createIndex/
+          // Reference for drop index: db.collection.drop( { writeConcern: <document> } )
+          // https://www.mongodb.com/docs/manual/reference/method/db.collection.dropIndex/
+          // Indexes are used to find documents quicker.  
+
+          // const contactsCollection = await _db.db("cse341db").collection("contacts");
+
+          // await contactsCollection.createIndex(
+          //   // 1 means sorting alphabetically in ascending order
+          //   // -1 means sorting alphaetcially in descending order
+          //   { lastName: 1 },
+          //   { name: "lastName_index"}  
+          // );
+          
+          // await contactsCollection.createIndex(
+          //   { email: 1 },
+          //   { unique: true, name: "email_unique_index"}
+          // )
+
+          // console.log('Database connected and single indexes for lastName and email created.');
+
           callback(null, _db);  
         })
         .catch(err => {

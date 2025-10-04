@@ -4,7 +4,6 @@
 
 // express web server
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,7 +11,7 @@ const url = `http://localhost:${port}`;
 const mongodb = require('./db/connect');
 
 app
-    .use(bodyParser.json())
+    .use(express.json())
     .use(cors())
     // .use((req, res, next) => {
     //     res.setHeader('Access-Control-Allow-Origin', '*');
