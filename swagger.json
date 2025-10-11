@@ -1,0 +1,345 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Contacts API",
+    "description": "This is a Contacts API for CSE 341.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/contacts/": {
+      "get": {
+        "tags": [
+          "GET"
+        ],
+        "description": "This is used to retrieve all the contacts.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "All contacts were sucessfully found.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "items": {
+                  "$ref": "#/definitions/Contact"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "404": {
+            "description": "No contacts were found in the database.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "No contacts were found."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error: no contacts were retrieved.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "An internal server error occurred while retrieving contacts."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "get": {
+        "tags": [
+          "GET"
+        ],
+        "description": "This is used to find a single contact with an id.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "This is the object id of the contact to retrieve. Example id: 68e1a0b3ee5576c136630326",
+            "example": "68e1a0b3ee5576c136630326"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single contact was successfully found with a specific id.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          },
+          "404": {
+            "description": "The contact with the specifed id was not found.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "The contact with the given id was not found."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error: the contact was not retrieved.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "An internal server error occurred while retrieving the contact with the given id."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PUT"
+        ],
+        "description": "This is used to update a contact by a the object id in the request.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "This is the object id of the contact to update. Example id: 68e1a0b3ee5576c136630326",
+            "example": "68e1a0b3ee5576c136630326"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "This contains the fields for the contact object to update.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A contact was updated by a id in the request.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "The contact with the given id was successfully updated."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "204": {
+            "description": "A contact was updated by a id in the request."
+          },
+          "404": {
+            "description": "The contact with the specified id was not found or there was not a change in the request body.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "The contact with the given id failed to update because that id was not found or there was no change in the body for that id."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred with updating a contact with a given id.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Internal server error: the contact with the given id was not updated."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DELETE"
+        ],
+        "description": "This is used to delete a contact with a specified id in the request.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "This is the id of the contact to delete. Example id: 68e1a0b3ee5576c136630326",
+            "example": "68e1a0b3ee5576c136630326"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The contact with specified id was deleted successfully."
+          },
+          "404": {
+            "description": "The contact with the specified id was not found.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "The contact with the specified id failed to delete because the id was not found."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred with deleting a contact with a given id.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Internal server error: the contact with the given id was not deleted."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "post": {
+        "tags": [
+          "POST"
+        ],
+        "description": "This is used to create a new contact.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "This contains the contact object that contains the data to create.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A contact was successfully created.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          },
+          "400": {
+            "description": "One or more required fields are missing from the request body.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "One or more required fields are missing."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error with creating a contact.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Internal server error: the contact failed to be added."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Dallin"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Stephens"
+        },
+        "email": {
+          "type": "string",
+          "example": "dallinstephens1@gmail.com"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "Red"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "December 20"
+        }
+      }
+    }
+  }
+}

@@ -2,14 +2,14 @@ const routes = require('express').Router();
 
 const contactsController = require('../controllers/contactsController');
 
-routes.get('/', contactsController.contactsMenu);
-routes.get('/contacts', contactsController.getAllContacts);
-routes.get('/contacts/single', contactsController.getSingleContact);
+// routes.get('/', contactsController.contactsMenu);
+routes.get('/contacts/', contactsController.getAllContacts);
+routes.get('/contacts/:id', contactsController.getSingleContact);
 
 routes.post('/contacts', contactsController.createContact);
 
-// The id without the colon is static text in this: /contacts/id
-// The id with the colon is a dynamic variable in this: /contacts/:id
+// The contactId without the colon is static text in this: /contacts/contactId
+// The contactId with the colon is a dynamic variable in this: /contacts/:contactId
 routes.put('/contacts/:id', contactsController.updateContact);
 
 routes.delete('/contacts/:id', contactsController.deleteContact);

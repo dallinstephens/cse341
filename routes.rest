@@ -87,7 +87,7 @@ Content-Type: application/json
 ###
 
 # DELETE (DELETE) TEST
-DELETE https://cse341-8k60.onrender.com/contacts/68dfe41f295118e4cd19e148 HTTP/1.1
+DELETE https://cse341-8k60.onrender.com/contacts/68e1a4cb05ce31c64dbf82b5 HTTP/1.1
 
 ###
 
