@@ -4,6 +4,7 @@
 
 // express web server
 const express = require('express');
+// CORS 
 const cors = require('cors');
 // const bodyParser = require('body-parser');
 const app = express();
