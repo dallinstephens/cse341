@@ -3,16 +3,16 @@ const routes = require('express').Router();
 const contactsController = require('../controllers/contactsController');
 
 // routes.get('/', contactsController.contactsMenu);
-routes.get('/', contactsController.getAllContacts);
-routes.get('/:id', contactsController.getSingleContact);
+routes.get('/contacts/', contactsController.getAllContacts);
+routes.get('/contacts/:id', contactsController.getSingleContact);
 
-routes.post('/', contactsController.createContact);
+routes.post('/contacts', contactsController.createContact);
 
 // The contactId without the colon is static text in this: /contacts/contactId
 // The contactId with the colon is a dynamic variable in this: /contacts/:contactId
-routes.put('/:id', contactsController.updateContact);
+routes.put('/contacts/:id', contactsController.updateContact);
 
-routes.delete('/:id', contactsController.deleteContact);
+routes.delete('/contacts/:id', contactsController.deleteContact);
 
 // Reference for POST video:
 // https://youtu.be/vjf774RKrLc?si=J_Kf-zjWhTb2u5iK
