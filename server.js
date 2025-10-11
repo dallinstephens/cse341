@@ -27,7 +27,7 @@ app
   //     next();
   // })
   .use('/contacts/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-  .use('/', require('./routes/contacts')); // same as app.use('/', require('./routes/index'));
+  .use('/contacts', require('./routes/contacts')); // same as app.use('/', require('./routes/index'));
 
 mongodb.initDb((err) => {
   if (err) {
