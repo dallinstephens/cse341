@@ -11,6 +11,7 @@ const doc = {
     },
     // host: 'localhost:3000',
     host: 'cse341-8k60.onrender.com',
+    schemes: ['https'],
     definitions: {
         Contact: {
             firstName: 'Dallin',
