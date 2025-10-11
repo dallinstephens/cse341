@@ -11,7 +11,7 @@
     "https"
   ],
   "paths": {
-    "/contacts/": {
+    "/": {
       "get": {
         "tags": [
           "GET"
@@ -70,9 +70,64 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "POST"
+        ],
+        "description": "This is used to create a new contact.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "This contains the contact object that contains the data to create.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "A contact was successfully created.",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          },
+          "400": {
+            "description": "One or more required fields are missing from the request body.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "One or more required fields are missing."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error with creating a contact.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Internal server error: the contact failed to be added."
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
       }
     },
-    "/contacts/{id}": {
+    "/{id}": {
       "get": {
         "tags": [
           "GET"
@@ -247,63 +302,6 @@
                 "message": {
                   "type": "string",
                   "example": "Internal server error: the contact with the given id was not deleted."
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/contacts": {
-      "post": {
-        "tags": [
-          "POST"
-        ],
-        "description": "This is used to create a new contact.",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "This contains the contact object that contains the data to create.",
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "A contact was successfully created.",
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          },
-          "400": {
-            "description": "One or more required fields are missing from the request body.",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "example": "One or more required fields are missing."
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
-            }
-          },
-          "500": {
-            "description": "An internal server error with creating a contact.",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "example": "Internal server error: the contact failed to be added."
                 }
               },
               "xml": {
