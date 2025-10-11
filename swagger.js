@@ -9,7 +9,8 @@ const doc = {
         title: 'Contacts API',
         description: 'This is a Contacts API for CSE 341.'
     },
-    host: 'localhost:3000',
+    // host: 'localhost:3000',
+    host: 'cse341-8k60.onrender.com',
     definitions: {
         Contact: {
             firstName: 'Dallin',
