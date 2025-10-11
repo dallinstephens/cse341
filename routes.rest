@@ -39,12 +39,12 @@ DELETE http://localhost:3000/contacts/68dfe41f295118e4cd19e148 HTTP/1.1
 ###
 
 # This request produces a json object for a single contact when appending ?id=someIdFromSingleContact to /contacts/single.
-GET http://localhost:3000/contacts/single?id=68d366e449379c1b0d7a8595 HTTP/1.1
+GET http://localhost:3000/contacts/68d366e449379c1b0d7a8595 HTTP/1.1
 
 ###
 
 # This request without ?id=... brings up html links to click for a single contact.
-GET http://localhost:3000/contacts/single HTTP/1.1
+# GET http://localhost:3000/contacts/single HTTP/1.1
 
 ###
 
@@ -92,17 +92,17 @@ DELETE https://cse341-8k60.onrender.com/contacts/68e1a4cb05ce31c64dbf82b5 HTTP/1
 ###
 
 # This request produces a json object for a single contact when appending ?id=someIdFromSingleContact to /contacts/single.
-GET https://cse341-8k60.onrender.com/contacts/single?id=68d366e449379c1b0d7a8595 HTTP/1.1
+GET https://cse341-8k60.onrender.com/contacts/68d366e449379c1b0d7a8595 HTTP/1.1
 
 ###
 
 # This request produces a json object for a single contact when appending ?id=someIdFromSingleContact to /contacts/single.
-GET https://cse341-8k60.onrender.com/contacts/single?id=68d366e449379c1b0d7a8595 HTTP/1.1
+GET https://cse341-8k60.onrender.com/contacts/68d366e449379c1b0d7a8595 HTTP/1.1
 
 ###
 
 # This request without ?id=... brings up html links to click for a single contact.
-GET https://cse341-8k60.onrender.com/contacts/single HTTP/1.1
+# GET https://cse341-8k60.onrender.com/contacts/single HTTP/1.1
 
 ###
 
